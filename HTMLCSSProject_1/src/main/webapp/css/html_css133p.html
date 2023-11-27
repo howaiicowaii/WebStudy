@@ -1,0 +1,41 @@
+<!--
+	<ul>
+      |
+     <li> : 데이터 저장 
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	/* li안에 class안의 select만 적용한다 */
+	/* 사용법 : 
+	   1. 공통부분 설정(.class명 적용) ,       
+	   2. 각 태그마다 설정(태그명.class명 적용) 
+	      클래스는 여러개 명칭을 적용할 수 있다
+	      class="a b c"
+	           
+	*/
+	.select{
+		background-color: yellow;
+	}
+	li.select{
+		color: green;
+	}
+	h1.select{
+		color: red;
+	}
+</style>
+</head>
+<body>
+  <h1 class="select">과일</h1>
+  <ul>
+	  <li>사과</li>
+	  <li class="select">배</li>
+	  <li>바나나</li>
+	  <li class="select">수박</li>
+	  <li>메론</li>
+  </ul>
+</body>
+</html>

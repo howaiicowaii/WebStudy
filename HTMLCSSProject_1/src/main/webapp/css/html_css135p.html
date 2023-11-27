@@ -1,0 +1,54 @@
+<!--
+	속성 선택자
+	선택자(태그명)[속성]
+	선택자[속성=값]
+	===== == 속성 ==> 태그+속성 
+	 태그명 
+	<input type=text>
+	====== ====
+	| 태그  | 속성
+	input[type=text]
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	input[value="java"]{
+		background-color: red;
+	}
+	input[value="oracle"]{
+		background-color: forestgreen;
+	}
+	input[value^="j"]{
+		background-color: pink;
+	}
+	input[value*="a"]{
+		background-color: yellow;
+	}
+	input[value$="t"]{
+		background-color: lightcyan;
+	}
+	/*
+		속성 선택자
+		1. = 같은 값일 때
+		2. ^= startsWith (시작 문자열)
+		3. *= contains (포함)
+		4. $= endsWith (끝 문자열)
+		===> a => href
+		     img => src
+	*/
+</style>
+</head>
+<body>
+  <h1>속성 선택자</h1>
+  <input type="text" size="20" value="java"><br>
+  <input type="text" size="20" value="oracle"><br>
+  <input type="text" size="20" value="html"><br>
+  <input type="text" size="20" value="script"><br>
+  <input type="text" size="20" value="jsp">
+</body>
+</html>
+
+
