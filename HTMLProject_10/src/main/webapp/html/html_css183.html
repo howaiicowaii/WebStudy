@@ -1,0 +1,67 @@
+<!--
+	텍스트 관련 CSS
+	=> font-size , font-family , font-weight
+	=> color
+ ***1. text-decoraton: none, underline, overline
+	   => 메뉴 overline , <a> underline:none 자주 사용
+    2. text-transform: none, uppercase, lowercase
+    3. text-shadow 
+ ***4. white-space
+    5. letter-spacing
+    6. word-spacing
+ ***7. text-align : 정렬 => left/center/right
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	ul{
+		width: 700px;
+		background-color: #FC6;
+		color: black;
+	}
+	li{
+		width: auto;
+		list-style: none;
+		display: inline-block;
+		text-transform: uppercase;
+		/* 사용처 : 로고문자열 */
+	}
+	a{
+		color: black;
+		text-decoration: none;
+	}
+	a:hover{
+		color: white;
+		text-decoration: overline;
+	}
+	table{
+		width: 600px;
+	}
+	pre{
+		white-space: pre-wrap; /* 자동 줄바꿈. table 600px 에 맞춰서 자동 줄바꿈 */
+		letter-spacing: 0.2em; /* 자간 */
+	}
+</style>
+</head>
+<body>
+  <ul>
+	  <li><a href="#">Home</a></li>
+	  <li><a href="#">Member</a></li>
+	  <li><a href="#">FreeBoard</a></li>
+	  <li><a href="#">Recommand</a></li>
+	  <li><a href="#">Mypage</a></li>
+  </ul>
+  <table>
+	  <tr>
+		  <td><pre>복지부는 드라마·예능 프로그램 등 우리에게 익숙한 미디어 속 음주장면이 청소년의 모방심리 등을 비롯하여, 우리사회에 미치는 직·간접적인 폐해가 부각됨에 따라 이러한 개정판을 만들었다고 설명했다. 여기에는 OTT, UCC 콘텐츠 등이 포함된다.
+
+최근 신동엽의 '짠한 형', 조현아의 '목요일 밤', 성시경의 '먹을텐데', 기안84의 '술터뷰' 등 연예인들이 이끄는 술방 콘텐츠가 우후죽순 늘어나면서 화제 몰이를 하고 있다. 술방 콘텐츠는 취중 진담과 같은 이제껏 본 적 없던 스타들의 진솔하고 인간적인 면모를 볼 수 있다는 점이 궁금증을 자극하며 호응을 얻고 있다.
+
+하지만 술을 먹고 얼굴이 벌겋게 달아오르거나 언성이 높아지고 비틀거리는 모습 등 취한 모습이 여과 없이 공개되면서 미성년자에게 음주에 대한 왜곡된 인식과 악영향을 끼칠 수 있다는 우려가 나오고 있다.</pre></td>
+	  </tr>
+  </table>
+</body>
+</html>
