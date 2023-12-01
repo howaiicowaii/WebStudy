@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/MenuServlet")
 public class MenuServlet extends HttpServlet {
@@ -31,6 +32,11 @@ public class MenuServlet extends HttpServlet {
 		out.write("<a href=MainServlet?mode=3 class=\"btn btn-info btn-lg menu\">베스트상품</a>");
 		out.write("<a href=MainServlet?mode=4 class=\"btn btn-success btn-lg menu\">신상품</a>");
 		out.write("<a href=MainServlet?mode=5 class=\"btn btn-warning btn-lg menu\">상품검색</a>");
+		out.write("<span style=\"margin-left:100px\">");
+		HttpSession session=request.getSession();
+		String name=(String)session.getAttribute("name"); // key 갖고 오는 것
+		out.write(name==null?"":name+"님 로그인중입니다");
+		out.write("</span>");
 		out.write("</div>");
 		out.write("</div>");
 		out.write("</body>");

@@ -35,6 +35,7 @@ public class GoodsDAO {
          dao=new GoodsDAO();
       return dao;
    }
+   // 목록
    public List<GoodsVO> goodsListData(int page,int type)
    {
       List<GoodsVO> list=new ArrayList<GoodsVO>();
