@@ -1,7 +1,6 @@
 package com.sist.view;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -46,10 +45,10 @@ public class loseAniServlet extends HttpServlet {
 			out.println("<td width=30%><img src="+vo.getImage()+" width=30 height=30></td>");
 			out.println("<td width=10%>"+vo.getTitle()+"</td>");
 			out.println("<td width=10%>"+vo.getInfo()+"</td>");
-			out.println("<td width=10%>"+vo.getLoseinfo()+"</td>");
-			out.println("<td width=10%>"+vo.getLosedate()+"</td>");
-			out.println("<td width=10%>"+vo.getLoseloc()+"</td>");
-			out.println("<td width=10%>"+vo.getFeature()+"</td>");
+//			out.println("<td width=10%>"+vo.getLoseinfo()+"</td>");
+//			out.println("<td width=10%>"+vo.getLosedate()+"</td>");
+//			out.println("<td width=10%>"+vo.getLoseloc()+"</td>");
+//			out.println("<td width=10%>"+vo.getFeature()+"</td>");
 			out.println("</tr>");
 		}
 		out.println("</table>");

@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*,com.sist.dao.*"%>
 <% 
-	loseAniDAO dao=new loseAniDAO();
 	String pp=request.getParameter("page");
 	if(pp==null)
 	pp="1"; // default값 안만들어 놓으면 에러 발생
 	int curpage=Integer.parseInt(pp);
 	// 4. 데이터베이스 연동 => 요청한 데이터를 가지고 온다
-	List<loseAniVO> list=dao.loseDogListData(1);
+	loseAniDAO dao=loseAniDAO.newInstance();
+	List<loseAniVO> list=dao.loseDogListData(curpage);
 	int totalpage=dao.loseDogTotalPage();
 	// 블록 나누기 **
 	final int BLOCK=10;

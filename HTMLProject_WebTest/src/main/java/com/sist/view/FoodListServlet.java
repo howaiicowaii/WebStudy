@@ -26,6 +26,7 @@ public class FoodListServlet extends HttpServlet {
 		//              -------------------- 접속한 클라이언트 브라우저
 		FoodDAO dao=FoodDAO.newInstance();
 		List<FoodVO> list=dao.foodListData(1);
+		
 		out.println("<html>");
 		out.println("<body>");
 		out.println("<center>");

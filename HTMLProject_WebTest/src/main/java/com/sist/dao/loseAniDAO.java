@@ -5,7 +5,7 @@ public class loseAniDAO {
 	private Connection conn;
 	private PreparedStatement ps;
 	private final String URL="jdbc:oracle:thin:@211.238.142.102:1521:XE";
-	private static loseAniDAO dao; // 싱글턴 만들 때 쓰는 방식 
+	private static loseAniDAO dao; // 싱글턴 만들 때 쓰는 방식  
 	// 드라이버 등록 => 한번만 생성 (생성자에서 생성)
 	public loseAniDAO()
 	{
@@ -55,13 +55,15 @@ public class loseAniDAO {
 			//                        2page 21 ~ 40
 			int start=(rowSize*page)-(rowSize-1);
 			int end=rowSize*page;
-//			String sql="SELECT ldno,sub,image,content,num "
-//					+ "FROM (SELECT ldno,sub,image,content,rownum as num "
-//					+ "FROM (SELECT /*+ INDEX_ASC(loseAni loseAni_ldno_pk)*/ldno,sub,image,content "
+//			String sql="SELECT ldno,image,title,info,loseinfo,losedate,loseloc,feature,num "
+//					+ "FROM (SELECT ldno,image,title,info,loseinfo,losedate,loseloc,feature,rownum as num "
+//					+ "FROM (SELECT /*+ INDEX_ASC(loseAni loseAni_ldno_pk)*/ldno,image,title,info,loseinfo,losedate,loseloc,feature "
 //					+ "WHERE num BETWEEN ? AND ?";
-			String sql="SELECT ldno,image,title,info,loseinfo,"
-					+ "losedate,loseloc,feature "
-					+ "FROM loseAni";
+			String sql="SELECT ldno,image,title,info,num "
+					+ "FROM (SELECT ldno,image,title,info,rownum as num "
+					+ "FROM (SELECT /*+ INDEX_ASC(loseAni loseAni_ldno_pk)*/ldno,image,title,info "
+					+ "FROM loseAni)) "
+					+ "WHERE num BETWEEN ? AND ?";
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, start);
 			ps.setInt(2, end);
@@ -74,10 +76,18 @@ public class loseAniDAO {
 				vo.setImage(rs.getString(2));
 				vo.setTitle(rs.getString(3));
 				vo.setInfo(rs.getString(4));
-				vo.setLoseinfo(rs.getString(5));
-				vo.setLosedate(rs.getString(6));
-				vo.setLoseloc(rs.getString(7));
-				vo.setFeature(rs.getString(8));
+//				vo.setLoseinfo(rs.getString(5));
+//				vo.setLosedate(rs.getString(6));
+//				vo.setLoseloc(rs.getString(7));
+//				vo.setFeature(rs.getString(8));
+//				vo.setLdno(rs.getInt(1));
+//				vo.setImage(rs.getString(2));
+//				vo.setTitle(rs.getString(3));
+//				vo.setInfo(rs.getString(4));
+//				vo.setLoseinfo(rs.getString(5));
+//				vo.setLosedate(rs.getString(6));
+//				vo.setLoseloc(rs.getString(7));
+//				vo.setFeature(rs.getString(8));
 				
 				list.add(vo);
 			}
