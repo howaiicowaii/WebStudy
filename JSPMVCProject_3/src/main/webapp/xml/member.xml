@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE member SYSTEM "member.dtd"> <!-- SYSTEM : 비공개 -->
+<!-- Spring / MyBatis 에서 XML 사용 외우지 않고 쉽게 하기 위해 dtd 올려둬야 한다 -->
+<member>
+  <list>
+    <id>hong</id>
+    <pwd>1234</pwd>
+    <name>홍길동</name>
+    <address>서울</address>
+    <phone>010-1111-1111</phone>
+  </list>
+</member>
