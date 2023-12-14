@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	ListModel
+	InsertModel
+	InsertOkModel
+	UpdateModel
+	UpdateOkModel
+	DeleteModel
+	DeleteOkModel
+	FindModel
+	DetailModel
+	===============
+	BoardModel => 메소드 => 응집성
+	{
+		= 조건문 대신 사용(ㅁ라면 ㅁ메소드를 호출해라) => 어노테이션(찾기 기능)
+		list(){}
+		insert(){}
+		update(){}
+		...
+		...
+	}
+ -->
+<beans> <!-- 클래스를 모아주고 있다 -->
+  <bean id="board" class="com.sist.model.BoardModel"/>
+</beans>
