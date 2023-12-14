@@ -21,7 +21,7 @@ public class ListModel implements Model {
 		request.setAttribute("curpage", curpage);
 		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("list", list);
-		return "board/list.jsp";
+		return "board/list.do";
 	}
 
 }

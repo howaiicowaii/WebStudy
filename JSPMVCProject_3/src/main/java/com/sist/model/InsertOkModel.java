@@ -28,7 +28,7 @@ public class InsertOkModel implements Model {
 		BoardDAO dao=BoardDAO.newInstance();
 		dao.boardInsert(vo);
 		
-		return "redirect:list.do";
+		return "redirect:list.jsp";
 	}
 
 }
