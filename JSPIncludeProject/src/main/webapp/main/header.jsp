@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top"> <!-- 메뉴 스크롤 내려도 고정! -->
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="../main/main.do">MVC Mini Project</a>
@@ -35,6 +35,7 @@
         </ul>
       </li>
       <li><a href="../losecat/losecat.do">실종 고양이</a></li>
+      <li><a href="../store/all.do">스토어</a></li>
     </ul>
   </div>
 </nav>

@@ -42,7 +42,8 @@ public class SeoulModel {
 			page="1";
 		int curpage=Integer.parseInt(page);
 		// 2. DB 연동 
-		SeoulDAO dao=new SeoulDAO(); // 싱글턴 해야되는데 안만들어놔서 그냥 메모리 할당했다.
+		SeoulDAO dao=new SeoulDAO(); // 싱글턴 해야되는데 안만들어놔서 그냥 메모리 할당했다. (12/15 만들었다)
+		System.out.println("seoul-dao="+dao);
 		List<SeoulVO> list=dao.seoulLocationListData(curpage,"seoul_nature");
 		int totalpage=dao.seoulLocationTotalPage("seoul_nature");
 		
