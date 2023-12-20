@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+   <bean id="main" class="com.sist.model.MainModel"></bean>
+   <bean id="funeralDetail" class="com.sist.model.FuneralDetailModel"></bean>
+   <bean id="animal" class="com.sist.model.AnimalModel"></bean>
+</beans>
