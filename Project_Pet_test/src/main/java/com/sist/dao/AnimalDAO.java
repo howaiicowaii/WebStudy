@@ -71,9 +71,9 @@ public class AnimalDAO {
 		try
 		{
 			conn=dbconn.getConnection();
-			String sql="SELECT kano,keepimage,keepregdate,keeptitle,keepfoundloc,num "
-					 + "FROM (SELECT kano,keepimage,keepregdate,keeptitle,keepfoundloc,rownum as num "
-					 + "FROM (SELECT kano,keepimage,keepregdate,keeptitle,keepfoundloc "
+			String sql="SELECT kano,keepimage,keepregdate,keeptitle,keepwriter,num "
+					 + "FROM (SELECT kano,keepimage,keepregdate,keeptitle,keepwriter,rownum as num "
+					 + "FROM (SELECT kano,keepimage,keepregdate,keeptitle,keepwriter "
 					 + "FROM keepanimal2 ORDER BY kano ASC)) "
 					 + "WHERE num BETWEEN ? AND ?";
 			ps=conn.prepareStatement(sql);
@@ -91,7 +91,7 @@ public class AnimalDAO {
 				vo.setKeepimage(rs.getString(2));
 				vo.setKeepregdate(rs.getString(3));
 				vo.setKeeptitle(rs.getString(4));
-				vo.setKeepfoundloc(rs.getString(5));
+				vo.setKeepwriter(rs.getString(5));
 				list.add(vo);
 			}
 			rs.close();
