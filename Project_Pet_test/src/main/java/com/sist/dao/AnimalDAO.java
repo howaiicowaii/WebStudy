@@ -135,13 +135,18 @@ public class AnimalDAO {
 			conn=dbconn.getConnection();
 			String sql="UPDATE keepanimal2 SET " // 조회수 증가
 					 + "hit=hit+1 "
-					 + "WHERE kano="+kano;
+					 + "WHERE kano=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, kano);
+			ps.executeUpdate();
+			
 			sql="SELECT kano,keeploc,keeptitle,keepfoundloc,keepwriter,keepregdate,keepimage,keepcontent "
 			  + "FROM keepanimal2 "
-			  + "WHERE kano="+kano;
+			  + "WHERE kano=?";
 			ps=conn.prepareStatement(sql);
-			ps.executeUpdate();
+			ps.setInt(1, kano);
 			ResultSet rs=ps.executeQuery();
+			rs.next();
 			vo.setKano(rs.getInt(1));
 			vo.setKeeploc(rs.getString(2));
 			vo.setKeeptitle(rs.getString(3));

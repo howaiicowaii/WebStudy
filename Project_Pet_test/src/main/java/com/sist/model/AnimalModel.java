@@ -21,9 +21,23 @@ public class AnimalModel {
 		AnimalDAO dao=AnimalDAO.newInstance(); // 싱글턴
 		List<AnimalVO> list=dao.animalListData(curpage);
 		int totalpage=dao.animalTotalPage();
-		
+
 		request.setAttribute("anilist", list);
 		request.setAttribute("main_jsp", "../animal/animal.jsp");
+		return "../main/main.jsp";
+	}
+	
+	@RequestMapping("animal/animaldetail.do")
+	public String animal_detail(HttpServletRequest request,HttpServletResponse response)
+	{
+		String kano=request.getParameter("kano");
+		// DAO 연결
+		AnimalDAO dao=AnimalDAO.newInstance();
+		AnimalVO avo=dao.animalDetailData(Integer.parseInt(kano));
+		
+		
+		request.setAttribute("avo", avo);
+		request.setAttribute("main_jsp", "../animal/animaldetail.jsp");
 		return "../main/main.jsp";
 	}
 }

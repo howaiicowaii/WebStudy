@@ -30,6 +30,23 @@ public class LoseDogDAO {
 					 + "FROM loseani ORDER BY hit DESC)) "
 					 + "WHERE num BETWEEN ? AND ?";
 			ps=conn.prepareStatement(sql);
+			int rowSize=12;
+			int start=(rowSize*page)-(rowSize-1);
+			int end=rowSize*page;
+			ps.setInt(1, start);
+			ps.setInt(2, end);
+			
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				LoseDogVO vo=new LoseDogVO();
+				vo.setLdno(rs.getInt(1));
+				vo.setImage(rs.getString(2));
+				vo.setTitle(rs.getString(3));
+				vo.setLoseinfo(rs.getString(4));
+				list.add(vo);
+			}
+			rs.close();
 			
 		}catch(Exception ex)
 		{
@@ -48,7 +65,7 @@ public class LoseDogDAO {
 		try
 		{
 			conn=dbconn.getConnection();
-			String sql="SELECT CEIL(COUNT(*)/12.0) FROM losedog";
+			String sql="SELECT CEIL(COUNT(*)/12.0) FROM loseani";
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
 			rs.next();
@@ -72,14 +89,19 @@ public class LoseDogDAO {
 		try
 		{
 			conn=dbconn.getConnection();
-			String sql="UPDATE losedog SET " // 조회수 증가
+			String sql="UPDATE loseani SET " // 조회수 증가
 					 + "hit=hit+1 "
-					 + "WHERE ldno="+ldno;
-			sql="SELECT ldno,image,title,info,loseinfo,losedate,loseloc,feature "
-			  + "FROM losedog "
-			  + "WHERE ldno="+ldno;
+					 + "WHERE ldno=?";
 			ps=conn.prepareStatement(sql);
+			ps.setInt(1, ldno);
+			ps.executeUpdate();
+			sql="SELECT ldno,image,title,info,loseinfo,losedate,loseloc,feature "
+			  + "FROM loseani "
+			  + "WHERE ldno=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, ldno);
 			ResultSet rs=ps.executeQuery();
+			rs.next();
 			vo.setLdno(rs.getInt(1));
 			vo.setImage(rs.getString(2));
 			vo.setTitle(rs.getString(3));

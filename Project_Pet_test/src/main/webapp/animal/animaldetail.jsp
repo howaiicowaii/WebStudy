@@ -4,14 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<style type="text/css">
-.keepimg{
-	width: 100px;
-}
-</style>
-<head>
     <meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
     <meta name="keywords" content="Ogani, unica, creative, html">
@@ -39,29 +31,33 @@
         <div class="loader"></div>
     </div>
 
-    <!-- Breadcrumb Section Begin (배너) -->
-    <section class="breadcrumb-section set-bg" data-setbg="../img/breadcrumb.jpg">
+
+    <!-- Blog Details Hero Begin -->
+    <section class="blog-details-hero set-bg" data-setbg="../img/blog/details/details-hero.jpg">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>보호중인 유기 동물</h2>
-                        <!-- <div class="breadcrumb__option">
-                            <a href="./index.html">Home</a>
-                            <span>Blog</span>
-                        </div> -->
+
+                <div class="col-lg-12">
+                    <div class="blog__details__hero__text">
+                        <h2>${avo.keeptitle }</h2>
+                        <ul>
+                            <li>${avo.keepfoundloc }</li>
+                            <li>${avo.keeploc }</li>
+                            <li>${avo.keepwriter }</li>
+                        </ul>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
-    <!-- Breadcrumb Section End -->
+    <!-- Blog Details Hero End -->
 
-    <!-- Blog Section Begin -->
-    <section class="blog spad">
+    <!-- Blog Details Section Begin -->
+    <section class="blog-details spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-5">
+                <div class="col-lg-4 col-md-5 order-md-1 order-2">
                     <div class="blog__sidebar">
                         <div class="blog__sidebar__search">
                             <form action="#">
@@ -75,6 +71,8 @@
                                 <li><a href="#">All</a></li>
                                 <li><a href="#">Beauty (20)</a></li>
                                 <li><a href="#">Food (5)</a></li>
+                                <li><a href="#">Life Style (9)</a></li>
+                                <li><a href="#">Travel (10)</a></li>
                             </ul>
                         </div>
                         <div class="blog__sidebar__item">
@@ -109,8 +107,7 @@
                                 </a>
                             </div>
                         </div>
-                        
-                        <%--<div class="blog__sidebar__item">
+                        <div class="blog__sidebar__item">
                             <h4>Search By</h4>
                             <div class="blog__sidebar__item__tags">
                                 <a href="#">Apple</a>
@@ -120,49 +117,88 @@
                                 <a href="#">Healthy Food</a>
                                 <a href="#">Lifestyle</a>
                             </div>
-                        </div> --%>
-                        
+                        </div>
                     </div>
                 </div>
                 
-                <%-- 리스트 --%>
-                <div class="col-lg-8 col-md-7">
-                    <div class="row">
-                      <c:forEach var="vo" items="${anilist }">
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="blog__item">
-                                <div class="blog__item__pic">
-									
-                              <a href="../animal/animaldetail.do?kano=${vo.kano }"><img src="${vo.keepimage }" class="keepimg" alt=""></a>
-                                </div>
-                                <div class="blog__item__text">
-                                    <ul>
-                                        <li><i class="fa fa-calendar-o"></i>${vo.keepwriter }</li>
-                                        <li><i class="fa fa-comment-o"></i>${vo.keepregdate }</li>
-                                    </ul>
-                                   
-                                    <h5><a href="../animal/animaldetail.do?kano=${vo.kano }">${vo.keeptitle }</a></h5>
-                                    <p>${vo.keepcontent } </p>
-                                    <%-- <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a> --%>
-                                </div>
-                            </div>
-                        </div>
-                        </c:forEach>
+                <!-- 본 내용 -->
+                <div class="col-lg-8 col-md-7 order-md-1 order-1">
+                    <div class="blog__details__text">
                         
-                        <div class="col-lg-12">
-                            <div class="product__pagination blog__pagination">
-                                <a href="#">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                            </div>
+                        
+                        <h3>${avo.keepregdate }</h3>
+                        <hr><br>
+                        <img src="${avo.keepimage }" alt="">
+                        
+                        <p>${avo.keepcontent }</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Details Section End -->
+
+    <!-- Related Blog Section Begin -->
+    <section class="related-blog spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title related-blog-title">
+                        <h2>Post You May Like</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="blog__item">
+                        <div class="blog__item__pic">
+                            <img src="img/blog/blog-1.jpg" alt="">
+                        </div>
+                        <div class="blog__item__text">
+                            <ul>
+                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                <li><i class="fa fa-comment-o"></i> 5</li>
+                            </ul>
+                            <h5><a href="#">Cooking tips make cooking simple</a></h5>
+                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="blog__item">
+                        <div class="blog__item__pic">
+                            <img src="img/blog/blog-2.jpg" alt="">
+                        </div>
+                        <div class="blog__item__text">
+                            <ul>
+                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                <li><i class="fa fa-comment-o"></i> 5</li>
+                            </ul>
+                            <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
+                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="blog__item">
+                        <div class="blog__item__pic">
+                            <img src="img/blog/blog-3.jpg" alt="">
+                        </div>
+                        <div class="blog__item__text">
+                            <ul>
+                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                <li><i class="fa fa-comment-o"></i> 5</li>
+                            </ul>
+                            <h5><a href="#">Visit the clean farm in the US</a></h5>
+                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Blog Section End -->
+    <!-- Related Blog Section End -->
 
     <!-- Js Plugins -->
     <script src="../js/jquery-3.3.1.min.js"></script>
