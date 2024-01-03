@@ -50,8 +50,8 @@
       <ul class="slides">
        <c:forEach var="vo" items="${aList }">
         <li>
-          <figure><img class="radius-10 btmspace-10" src="${vo.poster}" >
-            <figcaption><a href="#">${vo.name}</a></figcaption>
+          <figure><a href="../food/food_before_detail.do?fno=${vo.fno }"><img class="radius-10 btmspace-10" src="${vo.poster}" >
+            <figcaption>${vo.name}</a></figcaption>
           </figure>
         </li>
        </c:forEach>
@@ -62,8 +62,8 @@
       <ul class="slides">
        <c:forEach var="vo" items="${bList }">
         <li>
-          <figure><img class="radius-10 btmspace-10" src="${vo.poster}" >
-            <figcaption><a href="#">${vo.name}</a></figcaption>
+          <figure><a href="../food/food_before_detail.do?fno=${vo.fno }"><img class="radius-10 btmspace-10" src="${vo.poster}" >
+            <figcaption>${vo.name}</a></figcaption>
           </figure>
         </li>
        </c:forEach>
@@ -74,8 +74,8 @@
       <ul class="slides">
        <c:forEach var="vo" items="${cList }">
         <li>
-          <figure><img class="radius-10 btmspace-10" src="${vo.poster}" >
-            <figcaption><a href="#">${vo.name}</a></figcaption>
+          <figure><a href="../food/food_before_detail.do?fno=${vo.fno }"><img class="radius-10 btmspace-10" src="${vo.poster}" >
+            <figcaption>${vo.name}</a></figcaption>
           </figure>
         </li>
        </c:forEach>
@@ -86,29 +86,23 @@
       <ul class="slides">
        <c:forEach var="vo" items="${dList }">
         <li>
-          <figure><img class="radius-10 btmspace-10" src="${vo.poster}" >
-            <figcaption><a href="#">${vo.name}</a></figcaption>
+          <figure><a href="../food/food_before_detail.do?fno=${vo.fno }"><img class="radius-10 btmspace-10" src="${vo.poster}" >
+            <figcaption>${vo.name}</a></figcaption>
           </figure>
         </li>
        </c:forEach>
       </ul>
     </div>
-    <h2 class="sectiontitle">Lorem Ipsum Dolor</h2>
-    <ul class="nospace group">
-      <li class="one_half first">
-        <article><img class="imgl radius-10" src="../images/demo/100x100.gif" alt="">
-          <h6 class="heading"><a href="#">Lorem Ipsum Dolor</a></h6>
-          <p>Aenean semper elementum tellus, ut placerat leo. Quisque vehicula, urna sit amet.</p>
-        </article>
-      </li>
-      <li class="one_half">
-        <article><img class="imgl radius-10" src="../images/demo/100x100.gif" alt="">
-          <h6 class="heading"><a href="#">Lorem Ipsum Dolor</a></h6>
-          <p>Aenean semper elementum tellus, ut placerat leo. Quisque vehicula, urna sit amet.</p>
-        </article>
-      </li>
-    </ul>
-    <!-- / main body -->
+    <h2 class="sectiontitle">최근 방문 맛집</h2>
+    <div class="inline">
+      <c:forEach var="kvo" items="${kList }" varStatus="s">
+       <c:if test="${s.index<9 }">
+       <img class="radius-10"
+        src="${kvo.poster }" style="width: 100px; height: 100px" title="${kvo.name }">
+        </c:if>
+      </c:forEach>
+      
+    </div>
     <div class="clear"></div>
   </main>
 </div>

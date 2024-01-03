@@ -133,7 +133,7 @@ $(function(){
         <ul>
           <li><a href="../board/list.do">자유게시판</a></li>
           <li><a href="pages/full-width.html">공지사항</a></li>
-          <li><a href="pages/sidebar-left.html">자료실</a></li>
+          <li><a href="../databoard/list.do">자료실</a></li>
         </ul>
       </li>
       <c:if test="${sessionScope.id!=null }">

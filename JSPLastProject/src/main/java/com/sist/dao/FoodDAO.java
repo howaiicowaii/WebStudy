@@ -215,7 +215,80 @@ public class FoodDAO {
 		   }
 		   return vo;
 	   }
+	 // Top 7
+	 public List<FoodVO> foodTop7()
+	 {
+		 List<FoodVO> list=new ArrayList<FoodVO>();
+		 try
+		 {
+			 conn=dbconn.getConnection();
+			 String sql="SELECT fno,name,rownum "
+			 		  + "FROM (SELECT fno,name "
+			 		  + "FROM food_menu_house "
+			 		  + "ORDER BY hit DESC) "
+			 		  + "WHERE rownum<=7";
+			 ps=conn.prepareStatement(sql);
+			 ResultSet rs=ps.executeQuery();
+			 while(rs.next())
+			 {
+				 FoodVO vo=new FoodVO();
+				 vo.setFno(rs.getInt(1));
+				 vo.setName(rs.getString(2));
+				 list.add(vo);
+			 }
+			 rs.close();
+		 }catch(Exception ex)
+		 {
+			 ex.printStackTrace();
+		 }
+		 finally
+		 {
+			 dbconn.disConnection(conn, ps);
+		 }
+		 return list;
+	 }
 	 
-	 
+	 public FoodVO foodDetailData(int fno)
+	   {
+		   FoodVO vo=new FoodVO();
+		   try
+		   {
+			   conn=dbconn.getConnection();
+			   String sql="UPDATE food_menu_house SET "
+			   		    + "hit=hit+1 "
+			   		    + "WHERE fno="+fno;
+			   ps=conn.prepareStatement(sql);
+			   ps.executeUpdate();
+			   ps.close();
+			   
+			   sql="SELECT poster,name,score,phone,address,type,"
+					     +"theme,price,seat,time,content "
+					     +"FROM food_menu_house "
+					     +"WHERE fno="+fno;
+			   ps=conn.prepareStatement(sql);
+			   ResultSet rs=ps.executeQuery();
+			   rs.next();
+			   vo.setPoster("https://www.menupan.com"+rs.getString(1));
+			   vo.setName(rs.getString(2));
+			   vo.setScore(rs.getDouble(3));
+			   vo.setPhone(rs.getString(4));
+			   vo.setAddress(rs.getString(5));
+			   vo.setType(rs.getString(6));
+			   vo.setTheme(rs.getString(7));
+			   vo.setPrice(rs.getString(8));
+			   vo.setSeat(rs.getString(9));
+			   vo.setTime(rs.getString(10));
+			   vo.setContent(rs.getString(11));
+			   rs.close();
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   dbconn.disConnection(conn, ps);
+		   }
+		   return vo;
+	   }
 	
 }

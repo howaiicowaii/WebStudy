@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,31 +14,27 @@
     <div class="one_third first">
       <h6 class="title">공지사항</h6>
       <ul class="nospace linklist">
-        <li><a href="#">Home Page</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Portfolio</a></li>
-        <li><a href="#">Contact Us</a></li>
+      <c:forEach var="novo" items="${noList }">
+        <li><a href="#">[${novo.type }]&nbsp;${novo.subject }</a></li>
+      </c:forEach>
       </ul>
     </div>
     <div class="one_third">
       <h6 class="title">오늘의 뉴스</h6>
       <ul class="nospace linklist">
-        <li><a href="#">Home Page</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Portfolio</a></li>
-        <li><a href="#">Contact Us</a></li>
+       <c:forEach var="nvo" items="${nList }" varStatus="s">
+        <c:if test="${s.index<7 }">
+         <li><a href="${nvo.link }">${nvo.title }</a></li>
+        </c:if>
+       </c:forEach>
       </ul>
     </div>
     <div class="one_third">
       <h6 class="title">인기있는 맛집</h6>
       <ul class="nospace linklist">
-        <li><a href="#">Home Page</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Portfolio</a></li>
-        <li><a href="#">Contact Us</a></li>
+       <c:forEach var="fvo" items="${fList }">
+        <li><a href="../food/food_before_detail.do?fno=${fvo.fno }">${fvo.name }</a></li>
+       </c:forEach>
       </ul>
     </div>
     </footer>

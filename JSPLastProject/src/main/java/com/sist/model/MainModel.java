@@ -1,5 +1,6 @@
 package com.sist.model;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,7 +22,24 @@ public class MainModel {
 		request.setAttribute("bList", bList);
 		request.setAttribute("cList", cList);
 		request.setAttribute("dList", dList);
+		CommonsModel.commonsFooterData(request);
 		
+		Cookie[] cookies=request.getCookies();
+		List<FoodVO> kList=new ArrayList<FoodVO>();
+		if(cookies!=null)
+		{
+			for(int i=cookies.length-1;i>=0;i--)
+			{
+				if(cookies[i].getName().startsWith("food_"))
+				{
+					String fno=cookies[i].getValue();
+					FoodVO vo=dao.foodDetailData(Integer.parseInt(fno));
+					kList.add(vo);
+				}
+			}
+		}
+		request.setAttribute("kList", kList);
+		request.setAttribute("size", kList.size());
 		request.setAttribute("main_jsp", "../main/home.jsp");
 		return "../main/main.jsp";
 	}
